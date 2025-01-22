@@ -55,13 +55,16 @@ float scale_X = 3.0;
 float scale_Y = .5;
 float scale_Z = 1.0;
 
-
 float r_fan = 0.0;
 float r_sphere = 0.0;
 float t_sliding_door = 0.0;
 
+bool lightEnabled = false;
+bool rotationEnabled = false;
+
 bool fanOn = false;
 
+bool doorEnabled = false;
 bool doorOpen = false;
 bool doorClose = true;
 bool doorStill = true;
@@ -383,6 +386,53 @@ void drawSofaWithTransformations(const glm::mat4& identityMatrix,
     cube_box.drawCubeWithTexture(lightingShaderWithTexture, model);
 }
 
+void drawLift(glm::mat4 globalTranslationMatrix, Shader& lightingShaderWithTexture, Shader& ourShader, Cube& cube_floor, Cube& cube_wall, glm::vec3 translation) {
+    glm::mat4 identityMatrix = glm::mat4(1.0f);
+    glm::mat4 translateMatrix;
+    glm::mat4 scaleMatrix;
+    glm::mat4 model;
+
+    // Adjust global translation with the provided translation
+    globalTranslationMatrix = glm::translate(globalTranslationMatrix, translation);
+
+    // Right Wall
+    translateMatrix = glm::translate(identityMatrix, glm::vec3(20.0f, 0.2f, -4.0f));
+    scaleMatrix = glm::scale(translateMatrix, glm::vec3(3.0f, 3.7f, 0.3f));
+    model = globalTranslationMatrix * scaleMatrix;
+    cube_floor.drawCubeWithTexture(lightingShaderWithTexture, model);
+
+    // Left Wall
+    translateMatrix = glm::translate(identityMatrix, glm::vec3(20.0f, 0.2f, -0.3f));
+    scaleMatrix = glm::scale(translateMatrix, glm::vec3(3.0f, 3.7f, 0.3f));
+    model = globalTranslationMatrix * scaleMatrix;
+    cube_floor.drawCubeWithTexture(lightingShaderWithTexture, model);
+
+    // Floor
+    translateMatrix = glm::translate(identityMatrix, glm::vec3(20.0f, 0.0f, -4.0f));
+    scaleMatrix = glm::scale(translateMatrix, glm::vec3(3.0f, 0.2f, 4.0f));
+    model = globalTranslationMatrix * scaleMatrix;
+    ourShader.setMat4("model", model);
+    cube_floor.drawCubeWithTexture(lightingShaderWithTexture, model);
+
+    // Ceiling
+    translateMatrix = glm::translate(identityMatrix, glm::vec3(20.0f, 3.7f, -4.0f));
+    scaleMatrix = glm::scale(translateMatrix, glm::vec3(3.0f, 0.2f, 4.0f));
+    model = globalTranslationMatrix * scaleMatrix;
+    ourShader.setMat4("model", model);
+    cube_floor.drawCubeWithTexture(lightingShaderWithTexture, model);
+
+    // Far Wall
+    translateMatrix = glm::translate(identityMatrix, glm::vec3(20.3f, 0.2f, -3.75f));
+    scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.3f, 3.7f, 3.7f));
+    model = globalTranslationMatrix * scaleMatrix;
+    cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+
+    // Near Wall
+    translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.2f, -3.75f));
+    scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.3f, 3.7f, 3.7f));
+    model = globalTranslationMatrix * scaleMatrix;
+    cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+}
 
 int main()
 {
@@ -629,6 +679,29 @@ int main()
     diffMap = loadTexture(diffuseMapPath.c_str(), GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
     Cube cube_sofa = Cube(diffMap, specMap, 32.0f, 0.0f, 0.0f, 1.0f, 1.0f);
 
+    diffuseMapPath = "kitchen_box.jpg";
+    diffMap = loadTexture(diffuseMapPath.c_str(), GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+    Cube cube_kitchen_box = Cube(diffMap, specMap, 32.0f, 0.0f, 0.0f, 1.0f, 1.0f);
+
+    diffuseMapPath = "stove.png";
+    diffMap = loadTexture(diffuseMapPath.c_str(), GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+    Cube cube_stove = Cube(diffMap, specMap, 32.0f, 0.0f, 0.0f, 1.0f, 2.0f);
+
+    diffuseMapPath = "oven.jpg";
+    diffMap = loadTexture(diffuseMapPath.c_str(), GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+    Cube cube_oven = Cube(diffMap, specMap, 32.0f, 0.0f, 0.0f, 1.0f, 1.0f);
+
+    diffuseMapPath = "white.jpg";
+    diffMap = loadTexture(diffuseMapPath.c_str(), GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+    Cube cube_white = Cube(diffMap, specMap, 32.0f, 0.0f, 0.0f, 1.0f, 1.0f);
+
+    diffuseMapPath = "tile.png";
+    diffMap = loadTexture(diffuseMapPath.c_str(), GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+    Cube cube_tile = Cube(diffMap, specMap, 32.0f, 0.0f, 0.0f, 4.0, 2.0f);
+
+    diffMap = loadTexture(diffuseMapPath.c_str(), GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
+    Cube cube_tile2 = Cube(diffMap, specMap, 32.0f, 0.0f, 0.0f, 2.0, 2.0f);
+
     diffMap = loadTexture(diffuseMapPath.c_str(), GL_REPEAT, GL_REPEAT, GL_LINEAR_MIPMAP_LINEAR, GL_LINEAR);
     Polygon polygon_star1(diffMap, specMap, 32.0f, 0.0f, 0.0f, 1.0f, 1.0f, 3);
 
@@ -749,13 +822,13 @@ int main()
         pointlight4.setUpPointLight(lightingShaderWithTexture);
 
 
-        // ************************************************************************ Boundary ************************************************************************
+        // ************************************************************************ Cafeteria Boundary ************************************************************************
 
         // Drink Wall
         translateMatrix = glm::translate(identityMatrix, glm::vec3(0.0f, 0.0f, 0.0f));
         scaleMatrix = glm::scale(translateMatrix, glm::vec3(23.0f, 7.5f, 0.5f));
         model = globalTranslationMatrix * scaleMatrix;
-        cube_wall.drawCubeWithTexture(lightingShaderWithTexture, model);
+        //cube_wall.drawCubeWithTexture(lightingShaderWithTexture, model);
 
         //Design Wall
         translateMatrix = glm::translate(identityMatrix, glm::vec3(-0.5f, 0.0f, 30.0f));
@@ -776,80 +849,86 @@ int main()
         ourShader.setMat4("model", model);
         cube_floor.drawCubeWithTexture(lightingShaderWithTexture, model);
 
-        // Sliding Door
+        // Ceiling
+        translateMatrix = glm::translate(identityMatrix, glm::vec3(-0.5f, 7.5f, 0.0f));
+        scaleMatrix = glm::scale(translateMatrix, glm::vec3(23.5f, 0.5f, 30.5f));
+        model = globalTranslationMatrix * scaleMatrix;
+        ourShader.setMat4("model", model);
+        cube_floor.drawCubeWithTexture(lightingShaderWithTexture, model);
+
+        // ************************************************************************ Kitchen Boundary ************************************************************************
+
+        // Right Wall
+        translateMatrix = glm::translate(identityMatrix, glm::vec3(0.0f, 0.0f, -9.0f));
+        scaleMatrix = glm::scale(translateMatrix, glm::vec3(23.0f, 7.5f, 0.5f));
+        model = globalTranslationMatrix * scaleMatrix;
+        cube_tile.drawCubeWithTexture(lightingShaderWithTexture, model);
+
+        //Far Wall
+        translateMatrix = glm::translate(identityMatrix, glm::vec3(0.0f, 0.0f, -9.0f));
+        scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.5f, 7.5f, 30.0f));
+        model = globalTranslationMatrix * scaleMatrix;
+        cube_tile2.drawCubeWithTexture(lightingShaderWithTexture, model);
+
+        // Floor
+        translateMatrix = glm::translate(identityMatrix, glm::vec3(-0.5f, 0.0f, -9.0f));
+        scaleMatrix = glm::scale(translateMatrix, glm::vec3(23.5f, -0.5f, 30.5f));
+        model = globalTranslationMatrix * scaleMatrix;
+        ourShader.setMat4("model", model);
+        cube_floor.drawCubeWithTexture(lightingShaderWithTexture, model);
+
+        // Ceiling
+        translateMatrix = glm::translate(identityMatrix, glm::vec3(-0.5f, 7.5f, 0.0f));
+        scaleMatrix = glm::scale(translateMatrix, glm::vec3(23.5f, 0.5f, 30.5f));
+        model = globalTranslationMatrix * scaleMatrix;
+        ourShader.setMat4("model", model);
+        cube_floor.drawCubeWithTexture(lightingShaderWithTexture, model);
+
+        // ************************************************************************ Kitchen Box ************************************************************************
+
+        for (int i = 0; i < 12; i++) {
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(0.0f + i * 1.5, 2.5f, -8.5f));
+            scaleMatrix = glm::scale(translateMatrix, glm::vec3(1.5f, 0.1f, 2.0f));
+            model = globalTranslationMatrix * scaleMatrix;
+            cube_white.drawCubeWithTexture(lightingShaderWithTexture, model);
+
+            if (i == 9) {
+                translateMatrix = glm::translate(identityMatrix, glm::vec3(0.0f + i * 1.5, 0.0f, -8.5f));
+                scaleMatrix = glm::scale(translateMatrix, glm::vec3(3.0f, 2.5f, 2.0f));
+                model = globalTranslationMatrix * scaleMatrix;
+                cube_oven.drawCubeWithTexture(lightingShaderWithTexture, model);
+            }
+            else if (i == 10);
+
+            else {
+                translateMatrix = glm::translate(identityMatrix, glm::vec3(0.0f + i * 1.5, 0.0f, -8.5f));
+                scaleMatrix = glm::scale(translateMatrix, glm::vec3(1.5f, 2.5f, 2.0f));
+                model = globalTranslationMatrix * scaleMatrix;
+                cube_kitchen_box.drawCubeWithTexture(lightingShaderWithTexture, model);
+            }
+        }
+
+        translateMatrix = glm::translate(identityMatrix, glm::vec3(18.0f, 2.6f, -8.5f));
+        scaleMatrix = glm::scale(translateMatrix, glm::vec3(0.1f, -2.6f, 2.0f));
+        model = globalTranslationMatrix * scaleMatrix;
+        cube_white.drawCubeWithTexture(lightingShaderWithTexture, model);
+
+        // ************************************************************************ Stove ************************************************************************
+
+        for (int i = 0; i < 2; i++) {
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(5.0f + i * 4.0, 2.6f, -8.5f));
+            scaleMatrix = glm::scale(translateMatrix, glm::vec3(3.0f, 0.1f, 2.0f));
+            model = globalTranslationMatrix * scaleMatrix;
+            cube_stove.drawCubeWithTexture(lightingShaderWithTexture, model);
+        }
+
+        // ************************************************************************ Lift ************************************************************************
 
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-        if (doorStill && doorClose) {
-            t_sliding_door = 0.0f;
-
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
-            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -30.0f));
-            model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
-
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.55f));
-            scaleMatrix = glm::scale(translateMatrix, glm::vec3(0.0, 7.5f, 0.2f));
-            model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
-        }
-
-        else if (!doorStill && doorOpen) {
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
-            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -30.0f + t_sliding_door));
-            model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
-
-            if (t_sliding_door > 23.0f) {
-                doorStill = true;
-            }
-            else {
-                t_sliding_door += sliding_door_speed;
-                doorOpen = true;
-                doorClose = false;
-            }
-
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.55f));
-            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-t_sliding_door, 7.5f, 0.2f));
-            model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
-        }
-
-        else if (doorStill && doorOpen) {
-            t_sliding_door = 0.0f;
-
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
-            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -7.0f));
-            model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
-        
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.55f));
-            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-23.0, 7.5f, 0.2f));
-            model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
-        }
-
-        else if (!doorStill && doorClose) {
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
-            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -7.0f - t_sliding_door));
-            model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
-        
-            if (t_sliding_door > 23.0f) {
-                doorStill = true;
-            }
-            else {
-                t_sliding_door += sliding_door_speed;
-                doorOpen = false;
-                doorClose = true;
-            }
-        
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.55f));
-            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-23.0f + t_sliding_door, 7.5f, 0.2f));
-            model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
-        }
+        glm::vec3 roomTranslation(0.0f, 0.0f, 0.0f);
+        //drawLift(globalTranslationMatrix, lightingShaderWithTexture, ourShader, cube_floor, cube_wall, roomTranslation);
 
         glDisable(GL_BLEND);
 
@@ -857,11 +936,10 @@ int main()
 
         for (int i = 0; i < 6; i++) {
             translateMatrix = glm::translate(identityMatrix, glm::vec3(0.0f + i * 3, 0.0f, 0.5f));
-            scaleMatrix = glm::scale(translateMatrix, glm::vec3(3.0f, 2.0f, 2.0f));
+            scaleMatrix = glm::scale(translateMatrix, glm::vec3(3.0f, 2.5f, 2.0f));
             model = globalTranslationMatrix * scaleMatrix;
             cube_box.drawCubeWithTexture(lightingShaderWithTexture, model);
         }
-
 
         // ************************************************************************ Chair ************************************************************************
 
@@ -1032,7 +1110,7 @@ int main()
 
         for (int i = 0; i < 2; i++) {
             glBindVertexArray(lightCubeVAO);
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(0.0f, 0.0f, 29.75f - i*29.25f));
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(0.0f, 0.0f, 29.75f - i*38.25f));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(0.5f, 15.0f, 0.5f));
             model = globalTranslationMatrix * scaleMatrix;
             ourShader.setMat4("model", model);
@@ -1042,7 +1120,7 @@ int main()
 
         for (int i = 0; i < 2; i++) {
             glBindVertexArray(lightCubeVAO);
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 29.75f - i * 29.25f));
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 29.75f - i * 38.25f));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(0.5f, 15.0f, 0.5f));
             model = globalTranslationMatrix * scaleMatrix;
             ourShader.setMat4("model", model);
@@ -1052,7 +1130,7 @@ int main()
 
         for (int i = 0; i < 2; i++) {
             glBindVertexArray(lightCubeVAO);
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(0.0f, 7.5f, 29.75f - i * 29.25f));
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(0.0f, 7.5f, 29.75f - i * 38.25f));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(46.0f, -0.5f, 0.5f));
             model = globalTranslationMatrix * scaleMatrix;
             ourShader.setMat4("model", model);
@@ -1062,29 +1140,95 @@ int main()
 
         // ************************************************************************ Table Light ************************************************************************
 
-        for (int i = 0; i < 6; i++) {
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(1.5f + i * 4.0f, 5.0f, 5.0f));
-            rotateMatrix = glm::rotate(translateMatrix, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-            scaleMatrix = glm::scale(rotateMatrix, glm::vec3(0.425f, 0.425, -1.7f));
-            model = globalTranslationMatrix * scaleMatrix;
-            cylinder_design5.drawLightPolygon(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+        for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < 6; i++) {
+                translateMatrix = glm::translate(identityMatrix, glm::vec3(1.5f + i * 4.0f, 5.0f, 5.0f + 10.0f * j));
+                rotateMatrix = glm::rotate(translateMatrix, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+                scaleMatrix = glm::scale(rotateMatrix, glm::vec3(0.425f, 0.425, -1.7f));
+                model = globalTranslationMatrix * scaleMatrix;
+                cylinder_design5.drawLightPolygon(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            }
         }
-        
         for (int i = 0; i < 6; i++) {
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(1.5f + i * 4.0f, 5.0f, 15.0f));
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(1.5f + i * 4.0f, 5.0f, -5.0f));
             rotateMatrix = glm::rotate(translateMatrix, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
             scaleMatrix = glm::scale(rotateMatrix, glm::vec3(0.425f, 0.425, -1.7f));
             model = globalTranslationMatrix * scaleMatrix;
             cylinder_design5.drawLightPolygon(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
         }
 
-        for (int i = 0; i < 6; i++) {
-            translateMatrix = glm::translate(identityMatrix, glm::vec3(1.5f + i * 4.0f, 5.0f, 25.0f));
-            rotateMatrix = glm::rotate(translateMatrix, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-            scaleMatrix = glm::scale(rotateMatrix, glm::vec3(0.425f, 0.425, -1.7f));
+
+        // ************************************************************************ Sliding Door ************************************************************************
+
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+        if (doorStill && doorClose) {
+            t_sliding_door = 0.0f;
+
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
+            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -30.0f));
             model = globalTranslationMatrix * scaleMatrix;
-            cylinder_design5.drawLightPolygon(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
         }
+
+        else if (!doorStill && doorOpen) {
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
+            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -30.0f + t_sliding_door));
+            model = globalTranslationMatrix * scaleMatrix;
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+
+            if (t_sliding_door > 23.0f) {
+                doorStill = true;
+            }
+            else {
+                t_sliding_door += sliding_door_speed;
+                doorOpen = true;
+                doorClose = false;
+            }
+
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.55f));
+            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-t_sliding_door, 7.5f, 0.2f));
+            model = globalTranslationMatrix * scaleMatrix;
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+        }
+
+        else if (doorStill && doorOpen) {
+            t_sliding_door = 0.0f;
+
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
+            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -7.0f));
+            model = globalTranslationMatrix * scaleMatrix;
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.55f));
+            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-23.0, 7.5f, 0.2f));
+            model = globalTranslationMatrix * scaleMatrix;
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+        }
+
+        else if (!doorStill && doorClose) {
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
+            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -7.0f - t_sliding_door));
+            model = globalTranslationMatrix * scaleMatrix;
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+
+            if (t_sliding_door > 23.0f) {
+                doorStill = true;
+            }
+            else {
+                t_sliding_door += sliding_door_speed;
+                doorOpen = false;
+                doorClose = true;
+            }
+
+            translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.55f));
+            scaleMatrix = glm::scale(translateMatrix, glm::vec3(-23.0f + t_sliding_door, 7.5f, 0.2f));
+            model = globalTranslationMatrix * scaleMatrix;
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+        }
+
+        glDisable(GL_BLEND);
 
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
@@ -1142,51 +1286,73 @@ void processInput(GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_PERIOD) == GLFW_PRESS) translate_Z += 0.1;
     if (glfwGetKey(window, GLFW_KEY_COMMA) == GLFW_PRESS) translate_Z -= 0.1;
 
-    if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
+    {
+        rotationEnabled = true;
+    }
+
+    if (rotationEnabled && glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
     {
         rotateAngle_X += 1;
         rotateAxis_X = 1.0;
         rotateAxis_Y = 0.0;
         rotateAxis_Z = 0.0;
+
+        rotationEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
+    if (rotationEnabled && glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
     {
         rotateAngle_Y += 1;
         rotateAxis_X = 0.0;
         rotateAxis_Y = 1.0;
         rotateAxis_Z = 0.0;
+
+        rotationEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
+    if (rotationEnabled && glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS)
     {
         rotateAngle_Z += 1;
         rotateAxis_X = 0.0;
         rotateAxis_Y = 0.0;
         rotateAxis_Z = 1.0;
+
+        rotationEnabled = false;
     }
 
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+    if (rotationEnabled && glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
     {
         rotateAngle_X -= 1;
         rotateAxis_X = 1.0;
         rotateAxis_Y = 0.0;
         rotateAxis_Z = 0.0;
+
+        rotationEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS)
+    if (rotationEnabled && glfwGetKey(window, GLFW_KEY_V) == GLFW_PRESS)
     {
         rotateAngle_Y -= 1;
         rotateAxis_X = 0.0;
         rotateAxis_Y = 1.0;
         rotateAxis_Z = 0.0;
+
+        rotationEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
+    if (rotationEnabled && glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
         rotateAngle_Z -= 1;
         rotateAxis_X = 0.0;
         rotateAxis_Y = 0.0;
         rotateAxis_Z = 1.0;
+
+        rotationEnabled = false;
     }
 
-    if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+    if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
+    {
+        lightEnabled = true;
+    }
+
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
     {
         pointlight1.turnOff();
         pointlight2.turnOff();
@@ -1194,8 +1360,10 @@ void processInput(GLFWwindow* window)
         pointlight4.turnOff();
         directionalLightOn = false;
         spotLightOn = false;
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
     {
         pointlight1.turnOn();
         pointlight2.turnOn();
@@ -1203,103 +1371,140 @@ void processInput(GLFWwindow* window)
         pointlight4.turnOn();
         directionalLightOn = true;
         spotLightOn = true;
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS)
     {
         pointlight1.turnOff();
         pointlight2.turnOff();
         pointlight3.turnOff();
         pointlight4.turnOff();
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS)
     {
         pointlight1.turnOn();
         pointlight2.turnOn();
         pointlight3.turnOn();
         pointlight4.turnOn();
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS)
     {
         pointlight1.turnOn();
         pointlight3.turnOff();
         pointlight2.turnOff();
         pointlight4.turnOff();
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS)
     {
         directionalLightOn = false;
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_6) == GLFW_PRESS)
     {
         directionalLightOn = true;
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS)
     {
         spotLightOn = false;
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)
     {
         spotLightOn = true;
+
+        lightEnabled = false;
     }
 
-    if (glfwGetKey(window, GLFW_KEY_KP_1) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_KP_1) == GLFW_PRESS)
     {
         pointlight1.turnAmbientOff();
         pointlight2.turnAmbientOff();
         pointlight3.turnAmbientOff();
         pointlight4.turnAmbientOff();
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_KP_2) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_KP_2) == GLFW_PRESS)
     {
         pointlight1.turnAmbientOn();
         pointlight2.turnAmbientOn();
         pointlight3.turnAmbientOn();
         pointlight4.turnAmbientOn();
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_KP_3) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_KP_3) == GLFW_PRESS)
     {
         pointlight1.turnDiffuseOff();
         pointlight2.turnDiffuseOff();
         pointlight3.turnDiffuseOff();
         pointlight4.turnDiffuseOff();
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_KP_4) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_KP_4) == GLFW_PRESS)
     {
         pointlight1.turnDiffuseOn();
         pointlight2.turnDiffuseOn();
         pointlight3.turnDiffuseOn();
         pointlight4.turnDiffuseOn();
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_KP_5) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_KP_5) == GLFW_PRESS)
     {
         pointlight1.turnSpecularOff();
         pointlight2.turnSpecularOff();
         pointlight3.turnSpecularOff();
         pointlight4.turnSpecularOff();
+
+        lightEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_KP_6) == GLFW_PRESS)
+    if (lightEnabled && glfwGetKey(window, GLFW_KEY_KP_6) == GLFW_PRESS)
     {
         pointlight1.turnSpecularOn();
         pointlight2.turnSpecularOn();
         pointlight3.turnSpecularOn();
         pointlight4.turnSpecularOn();
+
+        lightEnabled = false;
     }
 
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+    {
+        doorEnabled = true;
+    }
+
+    if (doorEnabled && glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
     {
         if (doorStill == true && doorClose == true) {
             doorOpen = true;
             doorClose = false;
             doorStill = false;
         }
+
+        doorEnabled = false;
     }
-    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS)
+    if (doorEnabled && glfwGetKey(window, GLFW_KEY_0) == GLFW_PRESS)
     {
         if (doorStill == true && doorOpen == true) {
             doorOpen = false;
             doorClose = true;
             doorStill = false;
         }
+
+        doorEnabled = false;
     }
 }
 

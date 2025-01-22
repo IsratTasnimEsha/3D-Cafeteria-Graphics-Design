@@ -1,44 +1,44 @@
 ﻿  main.cpp
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\sphere.h(131,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\sphere.h(131,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\sphere.h(132,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\sphere.h(132,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\sphere.h(137,33): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\sphere.h(137,33): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\Cone2.h(72,50): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\Cone2.h(72,50): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
   (compiling source file 'main.cpp')
   
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\Cone2.h(83,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\Cone2.h(83,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\polygon.h(47,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\polygon.h(47,25): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'main.cpp')
   
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\polygon.h(123,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\polygon.h(123,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\polygon.h(150,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\polygon.h(150,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\polygon.h(167,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\polygon.h(167,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'main.cpp')
   
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(174,32): warning C4101: 'rotateMatrix': unreferenced local variable
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(674,67): warning C4305: 'argument': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(674,63): warning C4305: 'argument': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(674,59): warning C4305: 'argument': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(682,61): warning C4305: 'argument': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(682,57): warning C4305: 'argument': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(682,53): warning C4305: 'argument': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(686,50): warning C4305: 'argument': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(687,50): warning C4305: 'argument': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1138,71): warning C4305: '+=': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1139,73): warning C4305: '-=': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1140,74): warning C4305: '-=': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1141,73): warning C4305: '+=': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1142,75): warning C4305: '+=': truncation from 'double' to 'float'
-G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1143,74): warning C4305: '-=': truncation from 'double' to 'float'
-  Lighting.vcxproj -> G:\Lab\CSE - 4208\Project\Lab_5_Assignment - Copy\OpenGL 3.3 - Lighting (Part1+2+3)\x64\Debug\Lighting.exe
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(177,32): warning C4101: 'rotateMatrix': unreferenced local variable
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(747,67): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(747,63): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(747,59): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(755,61): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(755,57): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(755,53): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(759,50): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(760,50): warning C4305: 'argument': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1282,71): warning C4305: '+=': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1283,73): warning C4305: '-=': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1284,74): warning C4305: '-=': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1285,73): warning C4305: '+=': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1286,75): warning C4305: '+=': truncation from 'double' to 'float'
+G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\main.cpp(1287,74): warning C4305: '-=': truncation from 'double' to 'float'
+  Lighting.vcxproj -> G:\Lab\CSE - 4208\Project\Lab_5_Assignment\OpenGL 3.3 - Lighting (Part1+2+3)\x64\Debug\Lighting.exe

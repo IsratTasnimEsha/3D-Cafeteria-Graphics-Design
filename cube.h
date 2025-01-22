@@ -97,9 +97,11 @@ public:
         glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
     }
 
-    void drawCubeWithMaterialisticProperty(Shader& lightingShader, glm::mat4 model = glm::mat4(1.0f))
+    void drawCubeWithMaterialisticProperty(Shader& lightingShader, glm::mat4 model, glm::vec3 lightColor)
     {
         lightingShader.use();
+
+        lightingShader.setVec3("color", lightColor);
 
         lightingShader.setVec3("material.ambient", this->ambient);
         lightingShader.setVec3("material.diffuse", this->diffuse);
@@ -112,11 +114,11 @@ public:
         glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
     }
 
-    void drawCube(Shader& shader, glm::mat4 model = glm::mat4(1.0f), float r = 1.0f, float g = 1.0f, float b = 1.0f, float alpha = 0.0f)
+    void drawCube(Shader& shader, glm::mat4 model = glm::mat4(1.0f), float r = 1.0f, float g = 1.0f, float b = 1.0f)
     {
         shader.use();
 
-        shader.setVec4("color", glm::vec4(r, g, b, alpha)); // Pass alpha to the shader
+        shader.setVec3("color", glm::vec3(r, g, b));
         shader.setMat4("model", model);
 
         glBindVertexArray(cubeVAO);
@@ -128,7 +130,7 @@ public:
     {
         lightShader.use();
 
-        lightShader.setVec3("lightColor", lightColor);
+        lightShader.setVec3("color", lightColor);
 
         lightShader.setMat4("model", model);
 
@@ -164,75 +166,55 @@ private:
         // ------------------------------------------------------------------
 
         float cube_vertices[] = {
-            // positions          // normals           // texture
-            0.0f, 0.0f, 0.0f,    0.0f, 0.0f, -1.0f,   TXmax, TYmin,
-            1.0f, 0.0f, 0.0f,    0.0f, 0.0f, -1.0f,   TXmin, TYmin,
-            1.0f, 1.0f, 0.0f,    0.0f, 0.0f, -1.0f,   TXmin, TYmax,
-            0.0f, 1.0f, 0.0f,    0.0f, 0.0f, -1.0f,   TXmax, TYmax,
+            // positions      // normals         // texture
+            0.0f, 0.0f, 0.0f, 0.0f, 0.0f, -1.0f, TXmax, TYmin,
+            1.0f, 0.0f, 0.0f, 0.0f, 0.0f, -1.0f, TXmin, TYmin,
+            1.0f, 1.0f, 0.0f, 0.0f, 0.0f, -1.0f, TXmin, TYmax,
+            0.0f, 1.0f, 0.0f, 0.0f, 0.0f, -1.0f, TXmax, TYmax,
 
-            1.0f, 0.0f, 0.0f,    1.0f, 0.0f, 0.0f,    TXmax, TYmin,
-            1.0f, 1.0f, 0.0f,    1.0f, 0.0f, 0.0f,    TXmax, TYmax,
-            1.0f, 0.0f, 1.0f,    1.0f, 0.0f, 0.0f,    TXmin, TYmin,
-            1.0f, 1.0f, 1.0f,    1.0f, 0.0f, 0.0f,    TXmin, TYmax,
+            1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, TXmax, TYmin,
+            1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, TXmax, TYmax,
+            1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, TXmin, TYmin,
+            1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, TXmin, TYmax,
 
-            0.0f, 0.0f, 1.0f,    0.0f, 0.0f, 1.0f,    TXmin, TYmin,
-            1.0f, 0.0f, 1.0f,    0.0f, 0.0f, 1.0f,    TXmax, TYmin,
-            1.0f, 1.0f, 1.0f,    0.0f, 0.0f, 1.0f,    TXmax, TYmax,
-            0.0f, 1.0f, 1.0f,    0.0f, 0.0f, 1.0f,    TXmin, TYmax,
+            0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, TXmin, TYmin,
+            1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, TXmax, TYmin,
+            1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, TXmax, TYmax,
+            0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, TXmin, TYmax,
 
-            0.0f, 0.0f, 1.0f,    -1.0f, 0.0f, 0.0f,   TXmax, TYmin,
-            0.0f, 1.0f, 1.0f,    -1.0f, 0.0f, 0.0f,   TXmax, TYmax,
-            0.0f, 1.0f, 0.0f,    -1.0f, 0.0f, 0.0f,   TXmin, TYmax,
-            0.0f, 0.0f, 0.0f,    -1.0f, 0.0f, 0.0f,   TXmin, TYmin,
+            0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f, TXmax, TYmin,
+            0.0f, 1.0f, 1.0f, -1.0f, 0.0f, 0.0f, TXmax, TYmax,
+            0.0f, 1.0f, 0.0f, -1.0f, 0.0f, 0.0f, TXmin, TYmax,
+            0.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f, TXmin, TYmin,
 
-            1.0f, 1.0f, 1.0f,    0.0f, 1.0f, 0.0f,    TXmax, TYmin,
-            1.0f, 1.0f, 0.0f,    0.0f, 1.0f, 0.0f,    TXmax, TYmax,
-            0.0f, 1.0f, 0.0f,    0.0f, 1.0f, 0.0f,    TXmin, TYmax,
-            0.0f, 1.0f, 1.0f,    0.0f, 1.0f, 0.0f,    TXmin, TYmin,
+            1.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, TXmax, TYmin,
+            1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, TXmax, TYmax,
+            0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, TXmin, TYmax,
+            0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, TXmin, TYmin,
 
-            0.0f, 0.0f, 0.0f,    0.0f, -1.0f, 0.0f,   TXmin, TYmin,
-            1.0f, 0.0f, 0.0f,    0.0f, -1.0f, 0.0f,   TXmax, TYmin,
-            1.0f, 0.0f, 1.0f,    0.0f, -1.0f, 0.0f,   TXmax, TYmax,
-            0.0f, 0.0f, 1.0f,    0.0f, -1.0f, 0.0f,   TXmin, TYmax
+            0.0f, 0.0f, 0.0f, 0.0f, -1.0f, 0.0f, TXmin, TYmin,
+            1.0f, 0.0f, 0.0f, 0.0f, -1.0f, 0.0f, TXmax, TYmin,
+            1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 0.0f, TXmax, TYmax,
+            0.0f, 0.0f, 1.0f, 0.0f, -1.0f, 0.0f, TXmin, TYmax
         };
-
         unsigned int cube_indices[] = {
-            // Bottom face
             0, 3, 2,
             2, 1, 0,
 
-            // Top face
             4, 5, 7,
             7, 6, 4,
 
-            // Front face
             8, 9, 10,
             10, 11, 8,
 
-            // Back face
             12, 13, 14,
             14, 15, 12,
 
-            // Right face
             16, 17, 18,
             18, 19, 16,
 
-            // Left face
             20, 21, 22,
-            22, 23, 20,
-
-            // Connecting top to bottom (z=0 to z=1)
-            0, 1, 5,
-            5, 4, 0,
-
-            1, 2, 6,
-            6, 5, 1,
-
-            2, 3, 7,
-            7, 6, 2,
-
-            3, 0, 4,
-            4, 7, 3
+            22, 23, 20
         };
 
 

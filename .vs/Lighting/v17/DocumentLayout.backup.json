@@ -1,40 +1,40 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\",
+  "WorkspaceRootPath": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShader.fs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|solutionrelative:fragmentShader.fs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShaderForPhongShading.fs||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|solutionrelative:fragmentShaderForPhongShading.fs||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\polygon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|solutionrelative:polygon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\cube.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\cube.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|solutionrelative:cube.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\Cone2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShaderForPhongShading.fs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|solutionrelative:fragmentShaderForPhongShading.fs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\polygon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|solutionrelative:polygon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShader.fs||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|solutionrelative:fragmentShader.fs||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\Cone2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|solutionrelative:Cone2.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|solutionrelative:shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USER\\OneDrive\\Desktop\\Lab_4_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\drinks.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\pointLight.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\pointLight.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{FC920F35-5119-4F2D-8BF5-F04F11F55C0D}|Lighting.vcxproj|solutionrelative:pointLight.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -49,11 +49,11 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "fragmentShader.fs",
-              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShader.fs",
+              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShader.fs",
               "RelativeDocumentMoniker": "fragmentShader.fs",
-              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShader.fs",
+              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShader.fs",
               "RelativeToolTip": "fragmentShader.fs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
@@ -63,9 +63,9 @@
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "shader.h",
-              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\shader.h",
+              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\shader.h",
               "RelativeDocumentMoniker": "shader.h",
-              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\shader.h",
+              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\shader.h",
               "RelativeToolTip": "shader.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -75,9 +75,9 @@
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "Cone2.h",
-              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\Cone2.h",
+              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\Cone2.h",
               "RelativeDocumentMoniker": "Cone2.h",
-              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\Cone2.h",
+              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\Cone2.h",
               "RelativeToolTip": "Cone2.h",
               "ViewState": "AgIAAIgAAAAAAAAAAAAQwJUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -94,35 +94,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "cube.h",
-              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\cube.h",
+              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\cube.h",
               "RelativeDocumentMoniker": "cube.h",
-              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\cube.h*",
-              "RelativeToolTip": "..\\..\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\cube.h*",
-              "ViewState": "AgIAAGcAAAAAAAAAAAApwHAAAAAFAAAAAAAAAA==",
+              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\cube.h",
+              "RelativeToolTip": "cube.h",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAAwG0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-04T22:32:49.004Z"
+              "WhenOpened": "2025-01-04T22:32:49.004Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "fragmentShaderForPhongShading.fs",
-              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShaderForPhongShading.fs",
+              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShaderForPhongShading.fs",
               "RelativeDocumentMoniker": "fragmentShaderForPhongShading.fs",
-              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShaderForPhongShading.fs",
+              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\fragmentShaderForPhongShading.fs",
               "RelativeToolTip": "fragmentShaderForPhongShading.fs",
               "ViewState": "AgIAAD4AAAAAAAAAAAAWwEwAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-09T07:34:18.105Z"
+              "WhenOpened": "2024-12-09T07:34:18.105Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "pointLight.h",
-              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\pointLight.h",
+              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\pointLight.h",
               "RelativeDocumentMoniker": "pointLight.h",
-              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\pointLight.h",
+              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\pointLight.h",
               "RelativeToolTip": "pointLight.h",
               "ViewState": "AgIAADYAAAAAAAAAAAAAAAcAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
@@ -132,11 +134,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\main.cpp",
+              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\main.cpp",
-              "RelativeToolTip": "main.cpp",
-              "ViewState": "AgIAADcAAAAAAAAAAAAmwD4AAAATAAAAAAAAAA==",
+              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\main.cpp*",
+              "RelativeToolTip": "main.cpp*",
+              "ViewState": "AgIAALICAAAAAAAAAAAlwL4CAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-09T05:36:17.497Z",
               "EditorCaption": ""
@@ -145,13 +147,14 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "polygon.h",
-              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\polygon.h",
+              "DocumentMoniker": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\polygon.h",
               "RelativeDocumentMoniker": "polygon.h",
-              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment - Copy\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\polygon.h",
+              "ToolTip": "G:\\Lab\\CSE - 4208\\Project\\Lab_5_Assignment\\OpenGL 3.3 - Lighting (Part1\u002B2\u002B3)\\polygon.h",
               "RelativeToolTip": "polygon.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-19T18:10:58.708Z"
+              "WhenOpened": "2025-01-19T18:10:58.708Z",
+              "EditorCaption": ""
             }
           ]
         }
