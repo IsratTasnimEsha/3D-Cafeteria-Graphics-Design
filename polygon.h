@@ -85,7 +85,12 @@ public:
     {
         lightShader.use();
 
-        lightShader.setVec3("lightColor", lightColor);
+        lightShader.setVec3("color", lightColor);
+
+        lightShader.setVec3("material.ambient", this->ambient);
+        lightShader.setVec3("material.diffuse", this->diffuse);
+        lightShader.setVec3("material.specular", this->specular);
+        lightShader.setFloat("material.shininess", this->shininess);
 
         lightShader.setMat4("model", model);
 
@@ -295,7 +300,6 @@ private:
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
     }
-
 };
 
 

@@ -7,5 +7,3 @@ void main()
 {
    FragColor = LightingColor;
 }
-
-

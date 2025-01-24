@@ -101,7 +101,7 @@ public:
     unsigned int getIndexCount() const { return (unsigned int)indices.size(); }
 
     // Draw function
-    void drawSphere(Shader& lightingShader, glm::mat4 model) const
+    void drawSphere(Shader& lightingShader, glm::mat4 model, glm::vec3 color) const
     {
         lightingShader.use();
 
@@ -111,6 +111,10 @@ public:
         lightingShader.setVec3("material.specular", this->specular);
         lightingShader.setFloat("material.shininess", this->shininess);
 
+        // Pass color to the shader
+        lightingShader.setVec3("color", color); // Assumes the shader has a uniform named "objectColor"
+
+        // Set transformation matrix
         lightingShader.setMat4("model", model);
 
         // Draw the sphere

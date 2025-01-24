@@ -144,6 +144,7 @@
     <ClInclude Include="Cone2.h" />
     <ClInclude Include="cube.h" />
     <ClInclude Include="pointLight.h" />
+    <ClInclude Include="hollow_polygon.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="stb_image.h" />
   </ItemGroup>

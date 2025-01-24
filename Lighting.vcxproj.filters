@@ -53,6 +53,9 @@
     <ClInclude Include="Cone2.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="hollow_polygon.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="vertexShader.vs" />

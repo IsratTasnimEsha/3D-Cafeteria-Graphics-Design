@@ -38,46 +38,16 @@ public:
     {
         lightingShader.use();
 
-        if (lightNumber == 1) {
-            lightingShader.setVec3("pointLights[0].position", position);
-            lightingShader.setVec3("pointLights[0].ambient", ambientOn * ambient);
-            lightingShader.setVec3("pointLights[0].diffuse", diffuseOn * diffuse);
-            lightingShader.setVec3("pointLights[0].specular", specularOn * specular);
-            lightingShader.setFloat("pointLights[0].k_c", k_c);
-            lightingShader.setFloat("pointLights[0].k_l", k_l);
-            lightingShader.setFloat("pointLights[0].k_q", k_q);
-        }
+        int index = lightNumber - 1; // Adjust to 0-based indexing for the array
+        std::string lightBase = "pointLights[" + std::to_string(index) + "]";
 
-        else if (lightNumber == 2)
-        {
-            lightingShader.setVec3("pointLights[1].position", position);
-            lightingShader.setVec3("pointLights[1].ambient", ambientOn * ambient);
-            lightingShader.setVec3("pointLights[1].diffuse", diffuseOn * diffuse);
-            lightingShader.setVec3("pointLights[1].specular", specularOn * specular);
-            lightingShader.setFloat("pointLights[1].k_c", k_c);
-            lightingShader.setFloat("pointLights[1].k_l", k_l);
-            lightingShader.setFloat("pointLights[1].k_q", k_q);
-        }
-        else if (lightNumber == 3)
-        {
-            lightingShader.setVec3("pointLights[2].position", position);
-            lightingShader.setVec3("pointLights[2].ambient", ambientOn * ambient);
-            lightingShader.setVec3("pointLights[2].diffuse", diffuseOn * diffuse);
-            lightingShader.setVec3("pointLights[2].specular", specularOn * specular);
-            lightingShader.setFloat("pointLights[2].k_c", k_c);
-            lightingShader.setFloat("pointLights[2].k_l", k_l);
-            lightingShader.setFloat("pointLights[2].k_q", k_q);
-        }
-        else
-        {
-            lightingShader.setVec3("pointLights[3].position", position);
-            lightingShader.setVec3("pointLights[3].ambient", ambientOn * ambient);
-            lightingShader.setVec3("pointLights[3].diffuse", diffuseOn * diffuse);
-            lightingShader.setVec3("pointLights[3].specular", specularOn * specular);
-            lightingShader.setFloat("pointLights[3].k_c", k_c);
-            lightingShader.setFloat("pointLights[3].k_l", k_l);
-            lightingShader.setFloat("pointLights[3].k_q", k_q);
-        }
+        lightingShader.setVec3(lightBase + ".position", position);
+        lightingShader.setVec3(lightBase + ".ambient", ambientOn * ambient);
+        lightingShader.setVec3(lightBase + ".diffuse", diffuseOn * diffuse);
+        lightingShader.setVec3(lightBase + ".specular", specularOn * specular);
+        lightingShader.setFloat(lightBase + ".k_c", k_c);
+        lightingShader.setFloat(lightBase + ".k_l", k_l);
+        lightingShader.setFloat(lightBase + ".k_q", k_q);
     }
     void turnOff()
     {
