@@ -137,59 +137,59 @@ BasicCamera basic_camera(eyeX, eyeY, eyeZ, lookAtX, lookAtY, lookAtZ, V);
 
 // positions of the point lights
 glm::vec3 pointLightPositions[] = {
-    glm::vec3(17.5, 16.5,  -10.0f),
-    glm::vec3(17.5, 16.5,  20.0f),
-    glm::vec3(-30.0f, -1.2f, -30.0f),
+    glm::vec3(7.5, 16.5,  -1.0f),
+    glm::vec3(7.5, 16.5,  2.0f),
+    glm::vec3(0.0f, -1.2f, -1.0f),
     glm::vec3(0.0f, 5.0f, 0.0f),
-    glm::vec3(0.0f, 5.0f, 20.0f),
-    glm::vec3(20.0f, 5.0f, 0.0f),
-    glm::vec3(20.0f, 5.5f, 20.0f),
-    glm::vec3(10.0f, 5.0f, -9.0f),
+    glm::vec3(0.0f, 5.0f, 2.0f),
+    glm::vec3(2.0f, 5.0f, 0.0f),
+    glm::vec3(2.0f, 5.5f, 2.0f),
+    glm::vec3(1.0f, 5.0f, -9.0f),
 
-    glm::vec3(5.0f + 5 * 1.5, 2.5f, -8.5f),
-    glm::vec3(18.0f, 2.6f, -8.5f),
+    glm::vec3(5.0f + 5 * 1.5, 2.5f, -0.5f),
+    glm::vec3(8.0f, 2.6f, -8.5f),
     glm::vec3(0.9f, 2.3f, -3.0f),
     glm::vec3(0.0f, 0.0f, -6.0f),
-    glm::vec3(6.5f + 2 * 3.5, 2.6f, -8.5f),
-    glm::vec3(5.0f,  10.0f,  20.0f),
-    glm::vec3(22.5f, 0.0f, 11.0f),
-    glm::vec3(22.5f, 8.0f, 11.0f),
+    glm::vec3(6.5f + 2 * 3.5, 2.6f, -0.5f),
+    glm::vec3(5.0f,  10.0f,  5.0f),
+    glm::vec3(2.5f, 0.0f, 4.0f),
+    glm::vec3(2.5f, 8.0f, 3.0f),
 
     glm::vec3(0.0f + 4 * 3, 0.0f, 0.5f),
     glm::vec3(0.0f, 4.8f, 8.5f),
-    glm::vec3(3.0f + 5 * 4, 5.0f, 30.0f),
-    glm::vec3(1.0f, 2.0f, 17.5),
-    glm::vec3(25.0, 0.0f, 10.0),
-    glm::vec3(-8.0f + 2*5.5f, 0.0f, 22.5f),
-    glm::vec3(5.0f, 20.0f, 30.0f),
-    glm::vec3(5.0f, 20.0f, 40.0f),
+    glm::vec3(3.0f + 5 * 4, 5.0f, 3.0f),
+    glm::vec3(1.0f, 2.0f, 1.5),
+    glm::vec3(5.0, 0.0f, 1.0),
+    glm::vec3(-8.0f + 2*5.5f, 0.0f, 2.5f),
+    glm::vec3(5.0f, 20.0f, 3.0f),
+    glm::vec3(5.0f, 20.0f, 4.0f),
 
-    glm::vec3(15.0f,  0.0f,  -30.0f),
-    glm::vec3(15.0f,  0.0f,  -20.0f),
-    glm::vec3(15.0f, 0.f, -10.0f),
-    glm::vec3(15.0f, 0.0f, 0.0f),
-    glm::vec3(15.0f,  0.0f,  10.0f),
-    glm::vec3(15.0f,  0.0f,  20.0f),
-    glm::vec3(15.0f, 0.0f, 30.0f),
-    glm::vec3(15.0f, 0.0f, 40.0f),
+    glm::vec3(5.0f,  0.0f,  -2.0f),
+    glm::vec3(5.0f,  0.0f,  -1.0f),
+    glm::vec3(5.0f, 0.f, -1.0f),
+    glm::vec3(5.0f, 0.0f, 0.0f),
+    glm::vec3(5.0f,  0.0f,  1.0f),
+    glm::vec3(5.0f,  0.0f,  2.0f),
+    glm::vec3(5.0f, 0.0f, 3.0f),
+    glm::vec3(5.0f, 0.0f, 4.0f),
               
-    glm::vec3(15.0f,  10.0f,  -30.0f),
-    glm::vec3(15.0f,  10.0f,  -20.0f),
-    glm::vec3(15.0f, 10.f, -10.0f),
-    glm::vec3(15.0f, 10.0f, 0.0f),
-    glm::vec3(15.0f,  10.0f,  10.0f),
-    glm::vec3(15.0f,  10.0f,  20.0f),
-    glm::vec3(15.0f, 10.0f, 30.0f),
-    glm::vec3(15.0f, 10.0f, 40.0f),
+    glm::vec3(5.0f,  10.0f,  -2.0f),
+    glm::vec3(5.0f,  10.0f,  -1.0f),
+    glm::vec3(5.0f, 10.f, -1.0f),
+    glm::vec3(5.0f, 10.0f, 0.0f),
+    glm::vec3(5.0f,  10.0f,  1.0f),
+    glm::vec3(5.0f,  10.0f,  2.0f),
+    glm::vec3(5.0f, 10.0f, 3.0f),
+    glm::vec3(5.0f, 10.0f, 4.0f),
               
-    glm::vec3(15.0f,  20.0f,  -30.0f),
-    glm::vec3(15.0f,  20.0f,  -20.0f),
-    glm::vec3(15.0f, 20.f, -10.0f),
-    glm::vec3(15.0f, 20.0f, 0.0f),
-    glm::vec3(15.0f,  20.0f,  10.0f),
-    glm::vec3(15.0f,  20.0f,  20.0f),
-    glm::vec3(15.0f, 20.0f, 30.0f),
-    glm::vec3(15.0f, 20.0f, 40.0f),
+    glm::vec3(5.0f,  20.0f,  -5.0f),
+    glm::vec3(5.0f,  20.0f,  0.0f),
+    glm::vec3(5.0f, 20.f, -1.0f),
+    glm::vec3(5.0f, 20.0f, 0.0f),
+    glm::vec3(5.0f,  20.0f,  1.0f),
+    glm::vec3(5.0f,  20.0f,  2.0f),
+    glm::vec3(5.0f, 20.0f, 3.0f),
+    glm::vec3(5.0f, 20.0f, 4.0f),
 
     glm::vec3(0.0f, 0.0f, 0.0f),
     glm::vec3(0.0f, 8.0f, 0.0f),
@@ -234,39 +234,18 @@ void setUpLighting(Shader& lightingShader) {
     lightingShader.setVec3("diectionalLight.specular", 1.0f, 1.0f, 1.0f);
     lightingShader.setBool("dlighton", directionalLightOn);
 
-    lightingShader.setVec3("spotlight.position", 0.0f, 0.0f, 1.0f);
+    lightingShader.setVec3("spotlight.position", -3.0f, 8.0f, -40.0f);
     lightingShader.setVec3("spotlight.direction", 0, -1, 0);
-    lightingShader.setVec3("spotlight.ambient", 1.0, 1.0, 1.0);
-    lightingShader.setVec3("spotlight.diffuse", 1.0f, 1.0f, 1.0f);
-    lightingShader.setVec3("spotlight.specular", 1.0f, 1.0f, 1.0f);
-    lightingShader.setFloat("spotlight.k_c", 1.0f);
-    lightingShader.setFloat("spotlight.k_l", 0.09);
-    lightingShader.setFloat("spotlight.k_q", 0.032);
-    lightingShader.setFloat("cos_theta", glm::cos(glm::radians(20.5f)));
-    lightingShader.setBool("spotlighton", spotLightOn);
-
-    lightingShader.setVec3("spotlight.position", 20.0f, 20.0f, 1.0f);
-    lightingShader.setVec3("spotlight.direction", 0, -1, 0);
-    lightingShader.setVec3("spotlight.ambient", 1.0, 1.0, 1.0);
-    lightingShader.setVec3("spotlight.diffuse", 1.0f, 1.0f, 1.0f);
-    lightingShader.setVec3("spotlight.specular", 1.0f, 1.0f, 1.0f);
-    lightingShader.setFloat("spotlight.k_c", 1.0f);
-    lightingShader.setFloat("spotlight.k_l", 0.09);
-    lightingShader.setFloat("spotlight.k_q", 0.032);
-    lightingShader.setFloat("cos_theta", glm::cos(glm::radians(20.5f)));
-    lightingShader.setBool("spotlighton", spotLightOn);
-
-    lightingShader.setVec3("spotlight.position", 10.0f, 10.0f, 1.0f);
-    lightingShader.setVec3("spotlight.direction", 0, -1, 0);
-    lightingShader.setVec3("spotlight.ambient", 1.0, 1.0, 1.0);
-    lightingShader.setVec3("spotlight.diffuse", 1.0f, 1.0f, 1.0f);
-    lightingShader.setVec3("spotlight.specular", 1.0f, 1.0f, 1.0f);
-    lightingShader.setFloat("spotlight.k_c", 1.0f);
-    lightingShader.setFloat("spotlight.k_l", 0.09);
-    lightingShader.setFloat("spotlight.k_q", 0.032);
-    lightingShader.setFloat("cos_theta", glm::cos(glm::radians(20.5f)));
+    lightingShader.setVec3("spotlight.ambient", 1.0, 1.0, 0.0);
+    lightingShader.setVec3("spotlight.diffuse", 1.0f, 1.0f, 0.0f);
+    lightingShader.setVec3("spotlight.specular", 1.0f, 1.0f, 0.0f);
+    lightingShader.setFloat("spotlight.k_c", 0.02f);
+    lightingShader.setFloat("spotlight.k_l", 0.02f);
+    lightingShader.setFloat("spotlight.k_q", 0.02f);
+    lightingShader.setFloat("cos_theta", glm::cos(glm::radians(5.5f)));
     lightingShader.setBool("spotlighton", spotLightOn);
 }
+    
 
 void drawChairWithTransformations(const glm::mat4& identityMatrix,
     const glm::mat4& globalTranslationMatrix,
@@ -808,12 +787,12 @@ int main()
     for (int i = 0; i < noOfLights; ++i) {
         pointLights.emplace_back(
             pointLightPositions[i].x, pointLightPositions[i].y, pointLightPositions[i].z, // position
-            0.5f, 0.5f, 0.5f, // ambient
-            1.0f, 1.0f, 1.0f, // diffuse
-            1.0f, 1.0f, 1.0f, // specular
-            1.0f, // k_c
-            0.09f, // k_l
-            0.032f, // k_q
+            1.0f, 0.0f, 0.0f, // ambient
+            1.0f, 0.0f, 0.0f, // diffuse
+            1.0f, 0.0f, 0.0f, // specular
+            0.015f, // k_c
+            0.015f, // k_l
+            0.015f, // k_q
             i + 1 // light number (1-based indexing)
         );
     }
