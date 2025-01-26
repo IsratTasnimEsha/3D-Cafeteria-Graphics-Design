@@ -119,9 +119,17 @@ bool liftMoveStill = true;
 float lift_move_speed = 0.1f;
 
 bool directionalLightOn = true;
-bool spotLightOn = true;
+bool spotLightOn = false;
 
 int noOfLights = 50;
+
+bool isMorning = true;
+bool isNoon = false;
+bool isAfternoon = false;
+bool isEvening = false;
+bool isNight = false;
+
+
 // camera
 
 Camera camera(glm::vec3(-2.0f, 0.5f, 15.0f));
@@ -195,15 +203,13 @@ glm::vec3 pointLightPositions[] = {
     glm::vec3(0.0f, 8.0f, 0.0f),
 };
 
-bool pointLightOn[50] = { true, true, true, true, true, true, true, true,
-                         true, true, true, true, true, true, true, true,
-                         true, true, true, true, true, true, true, true, 
-                        true, true, true, true, true, true, true, true,
-                         true, true, true, true, true, true, true, true,
-                         true, true, true, true, true, true, true, true, 
-                        true, true};
-
-//glm::vec3(-0.5, 1, -0.5)
+bool pointLightOn[50] = { false, false, false, false, false, false, false, false,
+                         false, false, false, false, false, false, false, false,
+                         false, false, false, false, false, false, false, false,
+                        false, false, false, false, false, false, false, false,
+                         false, false, false, false, false, false, false, false,
+                         false, false, false, false, false, false, false, false,
+                        false, false};
 
 
 std::vector<PointLight> pointLights;
@@ -228,20 +234,54 @@ void setUpLighting(Shader& lightingShader) {
         pointLights[i].setUpPointLight(lightingShader);
     }
 
-    lightingShader.setVec3("diectionalLight.directiaon", 0.0f, 4.8f, 6.5f + 2 * 3);
-    lightingShader.setVec3("diectionalLight.ambient", 0.8, 0.8, 0.8);
-    lightingShader.setVec3("diectionalLight.diffuse", 1.0f, 1.0f, 1.0f);
-    lightingShader.setVec3("diectionalLight.specular", 1.0f, 1.0f, 1.0f);
-    lightingShader.setBool("dlighton", directionalLightOn);
+    if (isMorning) {
+        lightingShader.setVec3("diectionalLight.directiaon", 0.0f, 4.8f, 6.5f + 2 * 3);
+        lightingShader.setVec3("diectionalLight.ambient", 0.7, 0.7, 0.7);
+        lightingShader.setVec3("diectionalLight.diffuse", 1.0f, 1.0f, 1.0f);
+        lightingShader.setVec3("diectionalLight.specular", 1.0f, 1.0f, 1.0f);
+        lightingShader.setBool("dlighton", directionalLightOn);
+    }
+
+    if (isNoon) {
+        lightingShader.setVec3("diectionalLight.directiaon", 0.0f, 4.8f, 6.5f + 2 * 3);
+        lightingShader.setVec3("diectionalLight.ambient", 0.85, 0.85, 0.85);
+        lightingShader.setVec3("diectionalLight.diffuse", 1.0f, 1.0f, 1.0f);
+        lightingShader.setVec3("diectionalLight.specular", 1.0f, 1.0f, 1.0f);
+        lightingShader.setBool("dlighton", directionalLightOn);
+    }
+
+    if (isAfternoon) {
+        lightingShader.setVec3("diectionalLight.directiaon", 0.0f, 4.8f, 6.5f + 2 * 3);
+        lightingShader.setVec3("diectionalLight.ambient", 0.55, 0.55, 0.55);
+        lightingShader.setVec3("diectionalLight.diffuse", 1.0f, 1.0f, 1.0f);
+        lightingShader.setVec3("diectionalLight.specular", 1.0f, 1.0f, 1.0f);
+        lightingShader.setBool("dlighton", directionalLightOn);
+    }
+
+    if (isEvening) {
+        lightingShader.setVec3("diectionalLight.directiaon", 0.0f, 4.8f, 6.5f + 2 * 3);
+        lightingShader.setVec3("diectionalLight.ambient", 0.15, 0.15, 0.15);
+        lightingShader.setVec3("diectionalLight.diffuse", 1.0f, 1.0f, 1.0f);
+        lightingShader.setVec3("diectionalLight.specular", 1.0f, 1.0f, 1.0f);
+        lightingShader.setBool("dlighton", directionalLightOn);
+    }
+
+    if (isNight) {
+        lightingShader.setVec3("diectionalLight.directiaon", 0.0f, 4.8f, 6.5f + 2 * 3);
+        lightingShader.setVec3("diectionalLight.ambient", 0.0, 0.0, 0.0);
+        lightingShader.setVec3("diectionalLight.diffuse", 1.0f, 1.0f, 1.0f);
+        lightingShader.setVec3("diectionalLight.specular", 1.0f, 1.0f, 1.0f);
+        lightingShader.setBool("dlighton", directionalLightOn);
+    }
 
     lightingShader.setVec3("spotlight.position", -3.0f, 8.0f, -40.0f);
     lightingShader.setVec3("spotlight.direction", 0, -1, 0);
     lightingShader.setVec3("spotlight.ambient", 1.0, 1.0, 0.0);
     lightingShader.setVec3("spotlight.diffuse", 1.0f, 1.0f, 0.0f);
     lightingShader.setVec3("spotlight.specular", 1.0f, 1.0f, 0.0f);
-    lightingShader.setFloat("spotlight.k_c", 0.02f);
-    lightingShader.setFloat("spotlight.k_l", 0.02f);
-    lightingShader.setFloat("spotlight.k_q", 0.02f);
+    lightingShader.setFloat("spotlight.k_c", 0.01f);
+    lightingShader.setFloat("spotlight.k_l", 0.01f);
+    lightingShader.setFloat("spotlight.k_q", 0.01f);
     lightingShader.setFloat("cos_theta", glm::cos(glm::radians(5.5f)));
     lightingShader.setBool("spotlighton", spotLightOn);
 }
@@ -532,14 +572,14 @@ void drawLift(glm::mat4 globalTranslationMatrix, Shader& lightingShaderWithTextu
         translateMatrix = glm::translate(identityMatrix, glm::vec3(20.0f, 0.2f, -3.75f));
         scaleMatrix = glm::scale(translateMatrix, glm::vec3(0.0f, 3.5f, 3.5f));
         model = globalTranslationMatrix * scaleMatrix;
-        cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+        cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
     }
 
     else if (!liftStill && liftOpen) {
         translateMatrix = glm::translate(identityMatrix, glm::vec3(20.0f, 0.2f, -3.75f));
         scaleMatrix = glm::scale(translateMatrix, glm::vec3(0.0f, 3.5f, 3.5f + t_lift));
         model = globalTranslationMatrix * scaleMatrix;
-        cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+        cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
         if (t_lift < -3.3) {
             liftStill = false;
@@ -558,7 +598,7 @@ void drawLift(glm::mat4 globalTranslationMatrix, Shader& lightingShaderWithTextu
         translateMatrix = glm::translate(identityMatrix, glm::vec3(20.0f, 0.2f, -3.75f));
         scaleMatrix = glm::scale(translateMatrix, glm::vec3(0.0f, 3.5f, 0.2f + t_lift));
         model = globalTranslationMatrix * scaleMatrix;
-        cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+        cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
         if (t_lift > 3.3f) {
             liftStill = true;
@@ -576,7 +616,7 @@ void drawLift(glm::mat4 globalTranslationMatrix, Shader& lightingShaderWithTextu
     translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.2f, -3.75f));
     scaleMatrix = glm::scale(translateMatrix, glm::vec3(0.0f, 3.5f, 3.5f));
     model = globalTranslationMatrix * scaleMatrix;
-    cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+    cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 }
 
 long long nCr(int n, int r)
@@ -1137,6 +1177,9 @@ int main()
     //lightingShader.use();
 
     glClearColor(1.0f, 0.8f, 0.6f, 1.0f); // Morning color
+    for (size_t i = 0; i < pointLights.size(); ++i) {
+        pointLights[i].turnOff();
+    }
 
     // render loop
     // -----------
@@ -2016,25 +2059,25 @@ int main()
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -30.0f));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
             // Front Wall
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 8.0f, 30.0));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 9.5f, -30.0f));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
         }
 
         else if (!doorStill && doorOpen) {
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -30.0f + t_sliding_door));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 8.0f, 30.0));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 9.5f, -30.0f + t_sliding_door));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
             if (t_sliding_door > 23.0f) {
                 doorStill = true;
@@ -2048,12 +2091,12 @@ int main()
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.55f));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-t_sliding_door, 7.5f, 0.2f));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 8.0f, 30.55f));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-t_sliding_door, 9.5f, 0.2f));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
         }
 
         else if (doorStill && doorOpen) {
@@ -2062,35 +2105,35 @@ int main()
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -7.0f));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.55f));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-23.0, 7.5f, 0.2f));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
 
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 8.0f, 30.0));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 9.5f, -7.0f));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 8.0f, 30.55f));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-23.0, 9.5f, 0.2f));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
         }
 
         else if (!doorStill && doorClose) {
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.0));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 7.5f, -7.0f - t_sliding_door));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 8.0f, 30.0));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-0.2f, 9.5f, -7.0f - t_sliding_door));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
             if (t_sliding_door > 23.0f) {
                 doorStill = true;
@@ -2104,12 +2147,12 @@ int main()
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 0.0f, 30.55f));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-23.0f + t_sliding_door, 7.5f, 0.2f));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
 
             translateMatrix = glm::translate(identityMatrix, glm::vec3(23.0f, 8.0f, 30.55f));
             scaleMatrix = glm::scale(translateMatrix, glm::vec3(-23.0f + t_sliding_door, 9.5f, 0.2f));
             model = globalTranslationMatrix * scaleMatrix;
-            cube_wall.drawLightCube(ourShader, model, glm::vec3(1.0f, 1.0f, 1.0f));
+            cube_wall.drawLightCube(ourShader, model, glm::vec3(0.0f, 0.0f, 0.0f));
         }
 
         glDisable(GL_BLEND);
@@ -2170,22 +2213,52 @@ void processInput(GLFWwindow* window)
 
     if (backgroundEnabled && glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {
         glClearColor(1.0f, 0.8f, 0.6f, 1.0f); // Morning color
+        isMorning = true;
+        isNoon = false;
+        isAfternoon = false;
+        isEvening = false;
+        isNight = false;
+
         backgroundEnabled = false;
     }
     if (backgroundEnabled && glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
         glClearColor(0.53f, 0.81f, 0.98f, 1.0f); // Noon color
+        isMorning = false;
+        isNoon = true;
+        isAfternoon = false;
+        isEvening = false;
+        isNight = false;
+
         backgroundEnabled = false;
     }
     if (backgroundEnabled && glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
-        glClearColor(1.0f, 0.75f, 0.5f, 1.0f); // Afternoon color
+        glClearColor(0.9f, 0.4f, 0.3f, 1.0f); // Afternoon color
+        isMorning = false;
+        isNoon = false;
+        isAfternoon = true;
+        isEvening = false;
+        isNight = false;
+
         backgroundEnabled = false;
     }
     if (backgroundEnabled && glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
-        glClearColor(0.9f, 0.4f, 0.3f, 1.0f); // Evening color
+        glClearColor(0.1f, 0.1f, 0.2f, 1.0f); // Evening color
+        isMorning = false;
+        isNoon = false;
+        isAfternoon = false;
+        isEvening = true;
+        isNight = false;
+
         backgroundEnabled = false;
     }
     if (backgroundEnabled && glfwGetKey(window, GLFW_KEY_5) == GLFW_PRESS) {
-        glClearColor(0.0f, 0.0f, 0.1f, 1.0f); // Night color
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f); // Night color
+        isMorning = false;
+        isNoon = false;
+        isAfternoon = false;
+        isEvening = false;
+        isNight = true;
+
         backgroundEnabled = false;
     }
 
@@ -2294,8 +2367,6 @@ void processInput(GLFWwindow* window)
         for (size_t i = 0; i < pointLights.size(); ++i) {
             pointLights[i].turnOn();
         }
-
-        directionalLightOn = true;
         spotLightOn = true;
 
         lightEnabled = false;
@@ -2305,7 +2376,6 @@ void processInput(GLFWwindow* window)
         for (size_t i = 0; i < pointLights.size(); ++i) {
             pointLights[i].turnOff();
         }
-        directionalLightOn = false;
         spotLightOn = false;
 
         lightEnabled = false;
@@ -2315,7 +2385,6 @@ void processInput(GLFWwindow* window)
         for (size_t i = 0; i < pointLights.size(); ++i) {
             pointLights[i].turnOn();
         }
-        directionalLightOn = false;
         spotLightOn = false;
 
         lightEnabled = false;
@@ -2325,7 +2394,6 @@ void processInput(GLFWwindow* window)
         for (size_t i = 0; i < pointLights.size(); ++i) {
             pointLights[i].turnOff();
         }
-        directionalLightOn = true;
         spotLightOn = true;
 
         lightEnabled = false;
@@ -2336,7 +2404,6 @@ void processInput(GLFWwindow* window)
         for (size_t i = 0; i < pointLights.size(); ++i) {
             pointLights[i].turnOff();
         }
-        directionalLightOn = true;
         spotLightOn = false;
 
         lightEnabled = false;
@@ -2346,34 +2413,10 @@ void processInput(GLFWwindow* window)
         for (size_t i = 0; i < pointLights.size(); ++i) {
             pointLights[i].turnOn();
         }
-        directionalLightOn = false;
         spotLightOn = true;
 
         lightEnabled = false;
     }
-
-    if (lightEnabled && glfwGetKey(window, GLFW_KEY_7) == GLFW_PRESS)
-    {
-        for (size_t i = 0; i < pointLights.size(); ++i) {
-            pointLights[i].turnOff();
-        }
-        directionalLightOn = false;
-        spotLightOn = true;
-
-        lightEnabled = false;
-    }
-
-    if (lightEnabled && glfwGetKey(window, GLFW_KEY_8) == GLFW_PRESS)
-    {
-        for (size_t i = 0; i < pointLights.size(); ++i) {
-            pointLights[i].turnOn();
-        }
-        directionalLightOn = true;
-        spotLightOn = false;
-
-        lightEnabled = false;
-    }
-
 
     if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS)
     {
