@@ -26,6 +26,8 @@ This project showcases a detailed 3D interactive model of a cafeteria, featuring
 
 ## **Video**
 
+**Note:** Video quality has been reduced to meet GitHub README file size limitations.
+
 https://github.com/user-attachments/assets/0815cdaa-57e5-4c79-9d50-105f831f09e2
 
 ## Contact
@@ -37,4 +39,5 @@ I'm here to assist you on your journey with the Cafeteria Graphics Design. If yo
 **Israt Tasnim Esha** (1907090)      
 **CSE 4208	- Computer Graphics Laboratory**  
 *Department of Computer Science and Engineering*  
-*Khulna University of Engineering and Technology*
+*Khulna University of Engineering and Technology*          
+**Year:** 2024
