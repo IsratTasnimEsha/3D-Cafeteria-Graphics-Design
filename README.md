@@ -30,7 +30,7 @@ https://github.com/user-attachments/assets/0815cdaa-57e5-4c79-9d50-105f831f09e2
 
 ## Contact
 
-I'm here to assist you on your journey with the PureConnect - A Social Media App. If you need help or want to share feedback, feel free to reach out to me at [israttasnimesha1046@gmail.com](mailto:israttasnimesha1046@gmail.com).
+I'm here to assist you on your journey with the Cafeteria Graphics Design. If you need help or want to share feedback, feel free to reach out to me at [israttasnimesha1046@gmail.com](mailto:israttasnimesha1046@gmail.com).
 
 ## Author
 
