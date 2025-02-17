@@ -1,4 +1,4 @@
-# **Cafeteria Graphics Design**
+# **3D Cafeteria Graphics Design**
 
 This project showcases a detailed 3D interactive model of a cafeteria, featuring essential furniture, dynamic lighting, functional objects, and realistic movement systems.
 
